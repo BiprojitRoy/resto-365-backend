@@ -20,7 +20,7 @@ return new class extends Migration
                 $table->string('user_name')->after('user_nr')->nullable(false)->unique();
                 $table->string('mobile_nr')->after('email')->nullable(false)->unique();
                 $table->text('address')->after('mobile_nr')->nullable(true);
-                $table->enum('identification_type',['none', 'passport', 'national_id', 'driving_license'])->nullable(false)->default('none')->after('password');
+                $table->string('identification_type')->nullable(false)->default('none')->after('password');
                 $table->string('identification_nr')->nullable(true);
             });
         }

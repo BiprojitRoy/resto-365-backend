@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Providers;
-
 use App\Models\User;
+use App\Models\Company;
 use Flat3\Lodata\Facades\Lodata;
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class LodataServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
@@ -19,12 +19,13 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-        //
+        Lodata::discover(User::class);
+        Lodata::discover(Company::class);
     }
 }
